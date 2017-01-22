@@ -3,11 +3,14 @@ package com.umbreller.app.common.di.modules;
 import android.content.Context;
 
 import com.umbreller.app.AndroidApplication;
+import com.umbreller.app.common.di.ApplicationContext;
 import com.umbreller.app.common.executor.JobExecutor;
 import com.umbreller.app.common.executor.PostExecutionThread;
 import com.umbreller.app.common.executor.ThreadExecutor;
 import com.umbreller.app.common.executor.UIThread;
+import com.umbreller.app.data.repository.WeatherDataRepository;
 import com.umbreller.app.data.repository.remote.APIService;
+import com.umbreller.app.domain.repository.WeatherRepository;
 
 import javax.inject.Singleton;
 
@@ -32,6 +35,7 @@ public class ApplicationModule {
   }
 
   @Provides
+  @ApplicationContext
   @Singleton
   Context provideApplicationContext() {
     return mApplication;
@@ -53,5 +57,11 @@ public class ApplicationModule {
   @Singleton
   APIService provideApiService() {
     return APIService.Creator.newAPIService();
+  }
+
+  @Provides
+  @Singleton
+  WeatherRepository provideWeatherRepository(WeatherDataRepository weatherDataRepository) {
+    return weatherDataRepository;
   }
 }
