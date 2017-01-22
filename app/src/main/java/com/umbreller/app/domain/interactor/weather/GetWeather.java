@@ -22,6 +22,6 @@ public class GetWeather extends UseCase {
 
   @Override
   public Observable buildUseCaseObservable(Object... param) {
-    return mWeatherRepository.getWeather();
+    return mWeatherRepository.getWeatherByCurrentLocation();
   }
 }
