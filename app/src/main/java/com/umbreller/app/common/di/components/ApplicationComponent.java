@@ -6,6 +6,7 @@ import com.umbreller.app.common.di.ApplicationContext;
 import com.umbreller.app.common.di.modules.ApplicationModule;
 import com.umbreller.app.common.executor.PostExecutionThread;
 import com.umbreller.app.common.executor.ThreadExecutor;
+import com.umbreller.app.data.repository.LocationManager;
 import com.umbreller.app.data.repository.WeatherDataRepository;
 import com.umbreller.app.data.repository.remote.APIService;
 import com.umbreller.app.presentation.base.BaseActivity;
@@ -35,6 +36,8 @@ public interface ApplicationComponent {
   APIService apiService();
 
   Navigator navigator();
+
+  LocationManager locationManager();
 
   WeatherDataRepository weatherDataRepository();
 }
