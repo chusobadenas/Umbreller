@@ -1,8 +1,5 @@
 package com.umbreller.app.presentation.main;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import com.umbreller.app.common.di.PerActivity;
 import com.umbreller.app.common.exception.DefaultErrorBundle;
 import com.umbreller.app.common.exception.ErrorMessageFactory;
@@ -11,6 +8,10 @@ import com.umbreller.app.domain.interactor.DefaultSubscriber;
 import com.umbreller.app.domain.interactor.UseCase;
 import com.umbreller.app.presentation.base.BasePresenter;
 import com.umbreller.app.presentation.base.Presenter;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import timber.log.Timber;
 
 /**
@@ -27,7 +28,7 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
   }
 
   /**
-   * Initializes the presenter by start retrieving the user list.
+   * Initializes the presenter by start retrieving the weather
    */
   void initialize() {
     checkViewAttached();
@@ -68,16 +69,10 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
       MainMvpView mvpView = getMvpView();
       mvpView.hideLoading();
 
-      // NO RAIN
-      if (weather == null) {
-        mvpView.showUmbrellaStatus(false);
-        mvpView.showRainTime(null);
-      }
-      // RAINING, TAKE UMBRELLA
-      else {
-        mvpView.showUmbrellaStatus(true);
-        mvpView.showRainTime(weather.getRainTime());
-      }
+      // Set values in the view
+      mvpView.showCurrentLocation(weather.getCity());
+      mvpView.showUmbrellaStatus(weather.getRainVolume() > 0.0);
+      mvpView.showRainTime(weather.getRainTime());
     }
   }
 }
