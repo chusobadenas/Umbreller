@@ -27,6 +27,12 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
     mGetWeatherUseCase = getWeatherUseCase;
   }
 
+  @Override
+  public void detachView() {
+    super.detachView();
+    mGetWeatherUseCase.unsubscribe();
+  }
+
   /**
    * Initializes the presenter by start retrieving the weather
    */
