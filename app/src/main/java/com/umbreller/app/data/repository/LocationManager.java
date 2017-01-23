@@ -28,8 +28,8 @@ public class LocationManager implements LocationRepository {
 
   @Override
   public Observable<LocationEntity> getLocation() {
-    ReactiveLocationProvider mLocationProvider = new ReactiveLocationProvider(mContext);
-    return mLocationProvider.getLastKnownLocation()
+    ReactiveLocationProvider locationProvider = new ReactiveLocationProvider(mContext);
+    return locationProvider.getLastKnownLocation()
         .map(new Func1<Location, LocationEntity>() {
           @Override
           public LocationEntity call(Location location) {
