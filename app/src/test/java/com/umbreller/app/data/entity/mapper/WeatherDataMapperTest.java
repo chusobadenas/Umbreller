@@ -18,7 +18,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 
@@ -53,7 +53,7 @@ public class WeatherDataMapperTest {
     details.setDataForecast(today);
     details.setRain(rain);
     weatherEntity.setCity(city);
-    weatherEntity.setDetails(Arrays.asList(details));
+    weatherEntity.setDetails(Collections.singletonList(details));
 
     PowerMockito.when(DateUtils.isToday(Mockito.anyLong())).thenReturn(true);
 
