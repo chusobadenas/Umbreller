@@ -2,8 +2,17 @@ package com.umbreller.app.domain;
 
 public class Weather {
 
+  private String city;
   private double rainVolume;
   private String rainTime;
+
+  public final String getCity() {
+    return city;
+  }
+
+  public final void setCity(String city) {
+    this.city = city;
+  }
 
   public final double getRainVolume() {
     return rainVolume;
@@ -24,7 +33,8 @@ public class Weather {
   @Override
   public String toString() {
     return "Weather{" +
-        "rainVolume=" + rainVolume +
+        "city=" + city +
+        ", rainVolume=" + rainVolume +
         ", rainTime=" + rainTime +
         '}';
   }
