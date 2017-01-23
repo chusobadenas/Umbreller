@@ -6,17 +6,17 @@ import java.util.List;
 
 public class WeatherEntity {
 
-  @SerializedName("cod")
-  private String code;
+  @SerializedName("city")
+  private CityEntity city;
   @SerializedName("list")
   private List<WeatherDetailEntity> details;
 
-  public final String getCode() {
-    return code;
+  public final CityEntity getCity() {
+    return city;
   }
 
-  public final void setCode(String code) {
-    this.code = code;
+  public final void setCity(CityEntity city) {
+    this.city = city;
   }
 
   public final List<WeatherDetailEntity> getDetails() {
