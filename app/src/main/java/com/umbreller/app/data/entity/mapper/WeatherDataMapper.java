@@ -41,7 +41,7 @@ public class WeatherDataMapper {
               double rainVolume = rain.getVolume();
               weather = new Weather();
               weather.setRainVolume(rainVolume);
-              weather.setRainTime(forecastDate.toString());
+              weather.setRainTime(dateFormatter.format(forecastDate));
               break;
             }
           }
