@@ -30,7 +30,7 @@ public class BasePresenter<T extends MvpView> implements Presenter<T> {
     return mMvpView;
   }
 
-  public void checkViewAttached() {
+  protected void checkViewAttached() {
     if (!isViewAttached()) {
       throw new MvpViewNotAttachedException();
     }

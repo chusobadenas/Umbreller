@@ -60,7 +60,7 @@ public class MainActivity extends BaseActivity implements HasComponent<MainCompo
     return mainComponent;
   }
 
-  public void askForLocationPermission() {
+  private void askForLocationPermission() {
     if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
         PackageManager.PERMISSION_GRANTED) {
       requestLocationPermission();
